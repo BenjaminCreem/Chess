@@ -20,7 +20,7 @@ public class Board {
 		//Pawns
 		for(int i = 0; i < 8; i++)
 		{
-			board[i][1].occupy(new Pawn('W'));
+			board[i][1].occupy(new Pawn('W', board[i][1]));
 		}
 		//Rooks
 		board[0][0].occupy(new Rook('W', board[0][0]));

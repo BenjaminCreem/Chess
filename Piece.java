@@ -51,6 +51,7 @@ public abstract class Piece {
 		//Make sure the board knows where this piece is
 		b.board()[c.file()-97][c.rank()-1].remove();
 		b.board()[c.file()-97][c.rank()-1].occupy(this);
+		hasMoved = true;
 		return true;
 	}
 	
