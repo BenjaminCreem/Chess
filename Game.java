@@ -5,12 +5,11 @@ public class Game{
 	{
 		Board board = new Board();
 		board.populate();
-		board.print();
-		boolean test = board.board()[0][0].occupiedBy().move(board, board.board()[0][2]);
-		test = board.board()[1][1].occupiedBy().move(board, board.board()[1][3]);
-		test = board.board()[2][6].occupiedBy().move(board, board.board()[2][4]);
-		test = board.board()[1][3].occupiedBy().move(board, board.board()[2][4]);
-		System.out.println("\n\n\n");
+		//board.print();
+		//boolean test = board.board()[3][1].occupiedBy().move(board, board.board()[3][2]);
+		boolean test = board.board()[2][0].occupiedBy().move(board, board.board()[6][4]);
+		//board.print();
+		//test = board.board()[6][4].occupiedBy().move(board, board.board()[5][5]);
 		board.print();
 	}
 }
