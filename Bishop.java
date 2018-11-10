@@ -26,7 +26,7 @@ public class Bishop extends Piece{
 			}
 			else if(!isPathOccupied(test, b))
 			{
-				if(Math.abs(test.file()-test.rank()) == Math.abs(file - rank))
+				if((test.file()+test.rank() == file + rank) || test.file()-test.rank() == file - rank)
 				{
 					return true;
 				}
@@ -34,10 +34,8 @@ public class Bishop extends Piece{
 		}
 		else if(!isPathOccupied(test, b))
 		{
-			System.out.println("Bishop 1");
-			if(Math.abs(test.file()-test.rank()) == Math.abs(file - rank))
+			if((test.file()+test.rank() == file + rank) || test.file()-test.rank() == file - rank)
 			{
-				System.out.println("Bishop 2");
 				return true;
 			}
 		}
@@ -52,7 +50,7 @@ public class Bishop extends Piece{
 			int testRank = test.rank()-1;
 			for(int i = test.file()+1; i < file-1; i++)
 			{
-				if(b.board()[file-97][testRank-1].isOccupied())
+				if(i >= 97 && b.board()[i-97][testRank-1].isOccupied())
 				{
 					return true;
 				}
@@ -65,7 +63,7 @@ public class Bishop extends Piece{
 			int testRank = test.rank()-1;
 			for(int i = test.file()-1; i > file; i--)
 			{
-				if(b.board()[file-97][testRank-1].isOccupied())
+				if(i <= 104 && b.board()[i-97][testRank-1].isOccupied())
 				{
 					return true;
 				}
@@ -78,19 +76,21 @@ public class Bishop extends Piece{
 			int testRank = test.rank()+1;
 			for(int i = test.file()-1; i < file-1; i++)
 			{
-				if(b.board()[file-97][testRank-1].isOccupied())
+				if(i >= 97 && b.board()[i-97][testRank-1].isOccupied())
 				{
+					System.out.println("TEST TEST");
 					return true;
 				}
 				testRank++;
 			}
 		}
+		//Case Piece is down and to the right
 		else if(test.file() > file && test.rank() < rank)
 		{
 			int testRank = test.rank()+1;
 			for(int i = test.file()-1; i < file-1; i--)
 			{
-				if(b.board()[file-97][testRank-1].isOccupied())
+				if(i <= 104 && b.board()[i-97][testRank-1].isOccupied())
 				{
 					return true;
 				}

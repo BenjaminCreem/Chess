@@ -37,7 +37,21 @@ public class TestPieceMovement {
 		assertFalse(board.board()[7][5].occupiedBy().move(board, board.board()[7][1]));
 		
 		//Test Bishop Up Left movement
-		//assertTrue(board.board()[2][0].occupiedBy().move(board, board.board()[1][1]));
+		assertTrue(board.board()[2][0].occupiedBy().move(board, board.board()[1][1]));
+		//Test Bishop Down Left movement
+		assertTrue(board.board()[1][1].occupiedBy().move(board, board.board()[0][0]));
+		//Test Bishop Up Right Movement
+		assertTrue(board.board()[0][0].occupiedBy().move(board, board.board()[4][4]));
+		//Test Bishop Down Right movement
+		assertTrue(board.board()[4][4].occupiedBy().move(board, board.board()[6][2]));
+		//Test Bishop Forward movement
+		assertFalse(board.board()[6][2].occupiedBy().move(board, board.board()[6][4]));
+		//Test Bishop Side movement
+		assertFalse(board.board()[6][2].occupiedBy().move(board, board.board()[4][2]));
+		//Test Bishop Capture
+		assertTrue(board.board()[6][2].occupiedBy().move(board, board.board()[2][6]));
+		//Test Bishop Backwards Movement
+		assertFalse(board.board()[2][6].occupiedBy().move(board, board.board()[2][2]));
 		
 		board.print();
 	}
