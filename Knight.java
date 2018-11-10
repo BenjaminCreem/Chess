@@ -16,14 +16,48 @@ public class Knight extends Piece{
 	}
 
 	@Override
-	boolean validMove(Cell test, Board b) {
-		// TODO Auto-generated method stub
+	public boolean validMove(Cell test, Board b) {
+		if(test.isOccupied() && test.occupiedBy().team() == team)
+		{
+			return false;
+		}
+		else
+		{
+			if(test.file() == file-1)
+			{
+				if(test.rank() == rank+2 || test.rank() == rank-2)
+				{
+					return true;
+				}
+			}
+			else if(test.file() == file-2)
+			{
+				if(test.rank() == rank+1 || test.rank() == rank-1)
+				{
+					return true;
+				}
+			}
+			else if(test.file() == file+1)
+			{
+				if(test.rank() == rank+2 || test.rank() == rank-2)
+				{
+					return true;
+				}
+			}
+			else if(test.file() == file+2)
+			{
+				if(test.rank() == rank+1 || test.rank() == rank-1)
+				{
+					return true;
+				}
+			}
+		}
 		return false;
 	}
 
 	@Override
 	boolean isPathOccupied(Cell test, Board b) {
-		// TODO Auto-generated method stub
+		//Knights can just move whenever they want so this doesnt matter
 		return false;
 	}
 }

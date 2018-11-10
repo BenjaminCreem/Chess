@@ -45,12 +45,6 @@ public class Cell {
 		occupiedBy = piece;
 	}
 	
-	public void leave()
-	{
-		isOccupied = false;
-		occupiedBy = null;
-	}
-	
 	public Piece occupiedBy()
 	{
 		return occupiedBy;

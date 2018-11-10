@@ -55,6 +55,19 @@ public abstract class Piece {
 		return true;
 	}
 	
+	//Ignore everything just move
+	public void forceMove(Cell c)
+	{
+		file = c.file();
+		rank = c.rank();
+		hasMoved = true;
+	}
+	
+	public boolean hasMoved()
+	{
+		return hasMoved;
+	}
+	
 	abstract boolean validMove(Cell test, Board b);
 	abstract boolean isPathOccupied(Cell test, Board b);
 }
