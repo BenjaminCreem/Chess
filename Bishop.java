@@ -34,8 +34,10 @@ public class Bishop extends Piece{
 		}
 		else if(!isPathOccupied(test, b))
 		{
+			System.out.println("Bishop 1");
 			if(Math.abs(test.file()-test.rank()) == Math.abs(file - rank))
 			{
+				System.out.println("Bishop 2");
 				return true;
 			}
 		}

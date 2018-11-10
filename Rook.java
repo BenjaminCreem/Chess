@@ -50,6 +50,8 @@ public class Rook extends Piece{
 	}
 	
 	
+	
+	
 	@Override
 	public boolean isPathOccupied(Cell test, Board b)
 	{
@@ -57,7 +59,7 @@ public class Rook extends Piece{
 		{
 			for(int i = test.rank(); i > rank; i--)
 			{
-				if(b.board()[file-97][i-1].isOccupied())
+				if(b.board()[file-97][i-1].isOccupied() && b.board()[file-97][i-1].occupiedBy().team() == team)
 				{
 					System.out.println("There is another piece blocking the path");
 					return true;
@@ -68,7 +70,7 @@ public class Rook extends Piece{
 		{
 			for(int i = test.rank(); i < rank; i++)
 			{
-				if(b.board()[file-97][i-1].isOccupied())
+				if(b.board()[file-97][i-1].isOccupied() && b.board()[file-97][i-1].occupiedBy().team() == team)
 				{
 					System.out.println("There is another piece blocking the path");
 					return true;
@@ -79,7 +81,7 @@ public class Rook extends Piece{
 		{
 			for(int i = test.file(); i > file; i--)
 			{
-				if(b.board()[i-97][rank-1].isOccupied())
+				if(b.board()[i-97][rank-1].isOccupied() && b.board()[i-97][rank-1].occupiedBy().team() != team)
 				{
 					System.out.println("There is another piece blocking the path");
 					return true;
@@ -90,7 +92,7 @@ public class Rook extends Piece{
 		{
 			for(int i = test.file(); i > file; i++)
 			{
-				if(b.board()[i-97][rank-1].isOccupied())
+				if(b.board()[i-97][rank-1].isOccupied() && b.board()[i-97][rank-1].occupiedBy().team() != team)
 				{
 					System.out.println("There is another piece blocking the path");
 					return true;

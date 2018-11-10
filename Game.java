@@ -5,9 +5,6 @@ public class Game{
 	{
 		Board board = new Board();
 		board.populate();
-		//board.print();
-		
-		
 		board.print();
 	}
 }
