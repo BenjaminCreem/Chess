@@ -31,7 +31,7 @@ public class Queen extends Piece{
 				return true;
 			}
 			//Diagonal 
-			else if(Math.abs(test.file()-test.rank()) == Math.abs(file - rank))
+			else if((test.file()+test.rank() == file + rank) || test.file()-test.rank() == file - rank)
 			{
 				return true;
 			}
@@ -48,7 +48,7 @@ public class Queen extends Piece{
 				return true;
 			}
 			//Diagonal 
-			else if(Math.abs(test.file()-test.rank()) == Math.abs(file - rank))
+			else if((test.file()+test.rank() == file + rank) || test.file()-test.rank() == file - rank)
 			{
 				return true;
 			}
@@ -72,7 +72,7 @@ public class Queen extends Piece{
 			int testRank = test.rank()-1;
 			for(int i = test.file()+1; i < file-1; i++)
 			{
-				if(b.board()[file-97][testRank-1].isOccupied())
+				if(i >= 97 && b.board()[file-97][testRank-1].isOccupied())
 				{
 					return true;
 				}
@@ -85,7 +85,7 @@ public class Queen extends Piece{
 			int testRank = test.rank()-1;
 			for(int i = test.file()-1; i > file; i--)
 			{
-				if(b.board()[file-97][testRank-1].isOccupied())
+				if(i <= 104 && b.board()[file-97][testRank-1].isOccupied())
 				{
 					return true;
 				}
@@ -98,30 +98,32 @@ public class Queen extends Piece{
 			int testRank = test.rank()+1;
 			for(int i = test.file()-1; i < file-1; i++)
 			{
-				if(b.board()[file-97][testRank-1].isOccupied())
+				if(i >= 97 && b.board()[file-97][testRank-1].isOccupied())
 				{
 					return true;
 				}
 				testRank++;
 			}
 		}
+		//Case piece is down and to the right
 		else if(test.file() > file && test.rank() < rank)
 		{
 			int testRank = test.rank()+1;
 			for(int i = test.file()-1; i < file-1; i--)
 			{
-				if(b.board()[file-97][testRank-1].isOccupied())
+				if(i <= 104 && b.board()[file-97][testRank-1].isOccupied())
 				{
 					return true;
 				}
 				testRank++;
 			}
 		}
+		//Starts forward/backward/side to side conditions
 		else if(test.rank() > rank)
 		{
 			for(int i = test.rank(); i > rank; i--)
 			{
-				if(b.board()[file-97][i-1].isOccupied())
+				if(b.board()[file-97][i-1].isOccupied() && b.board()[file-97][i-1].occupiedBy().team() == team)
 				{
 					System.out.println("There is another piece blocking the path");
 					return true;
@@ -132,7 +134,7 @@ public class Queen extends Piece{
 		{
 			for(int i = test.rank(); i < rank; i++)
 			{
-				if(b.board()[file-97][i-1].isOccupied())
+				if(b.board()[file-97][i-1].isOccupied() && b.board()[file-97][i-1].occupiedBy().team() == team)
 				{
 					System.out.println("There is another piece blocking the path");
 					return true;
@@ -143,7 +145,7 @@ public class Queen extends Piece{
 		{
 			for(int i = test.file(); i > file; i--)
 			{
-				if(b.board()[i-97][rank-1].isOccupied())
+				if(b.board()[i-97][rank-1].isOccupied() && b.board()[i-97][rank-1].occupiedBy().team() == team)
 				{
 					System.out.println("There is another piece blocking the path");
 					return true;
@@ -154,7 +156,7 @@ public class Queen extends Piece{
 		{
 			for(int i = test.file(); i > file; i++)
 			{
-				if(b.board()[i-97][rank-1].isOccupied())
+				if(b.board()[i-97][rank-1].isOccupied() && b.board()[i-97][rank-1].occupiedBy().team() == team)
 				{
 					System.out.println("There is another piece blocking the path");
 					return true;

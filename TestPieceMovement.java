@@ -53,6 +53,47 @@ public class TestPieceMovement {
 		//Test Bishop Backwards Movement
 		assertFalse(board.board()[2][6].occupiedBy().move(board, board.board()[2][2]));
 		
+		//Test Knight Up 2 Left 1
+		assertTrue(board.board()[6][0].occupiedBy().move(board, board.board()[5][2]));
+		//Test Knight Up 2 Right 1
+		assertTrue(board.board()[5][2].occupiedBy().move(board, board.board()[6][4]));
+		//Test Knight Up 1 Left 2
+		assertTrue(board.board()[6][4].occupiedBy().move(board, board.board()[4][5]));
+		//Test Knight Up 1 Right 2 and capture
+		assertTrue(board.board()[4][5].occupiedBy().move(board, board.board()[6][6]));
+		//Test Knight Down 1 Left 2
+		assertTrue(board.board()[6][6].occupiedBy().move(board, board.board()[4][5]));
+		//Test Knight Down 1 Right 2
+		assertTrue(board.board()[4][5].occupiedBy().move(board, board.board()[6][4]));
+		//Test Knight Down 2 Left 1
+		assertTrue(board.board()[6][4].occupiedBy().move(board, board.board()[5][2]));
+		//Test Knight Down 2 Right 1 (want knight in H3 which requires 1 extra move)
+		assertTrue(board.board()[5][2].occupiedBy().move(board, board.board()[6][4]));
+		assertTrue(board.board()[6][4].occupiedBy().move(board, board.board()[7][2]));
+		//Test Knight Forward Movement
+		assertFalse(board.board()[7][2].occupiedBy().move(board, board.board()[7][3]));
+		//Test Knight Diagonal Movement
+		assertFalse(board.board()[7][2].occupiedBy().move(board, board.board()[6][3]));
+		
+		//Test Queen sideways left movement
+		assertTrue(board.board()[3][0].occupiedBy().move(board, board.board()[2][0]));
+		//Test Queen up left movement
+		assertTrue(board.board()[2][0].occupiedBy().move(board, board.board()[1][1]));
+		//Test Queen down Left movement
+		assertTrue(board.board()[1][1].occupiedBy().move(board, board.board()[0][0]));
+		//Test Queen forward movement and capture
+		assertTrue(board.board()[0][0].occupiedBy().move(board, board.board()[0][7]));
+		//Test Queen backward movement
+		assertTrue(board.board()[0][7].occupiedBy().move(board, board.board()[0][5]));
+		//Test Queen right movement
+		assertTrue(board.board()[0][5].occupiedBy().move(board, board.board()[4][5]));
+		//Test Queen down right movement
+		assertTrue(board.board()[4][5].occupiedBy().move(board, board.board()[6][3]));
+		//Test Queen up right movement
+		assertTrue(board.board()[6][3].occupiedBy().move(board, board.board()[7][4]));
+		
+		
+		
 		board.print();
 	}
 
