@@ -1,4 +1,4 @@
-package chess;
+
 
 public class Rook extends Piece{
 	public Rook(char t)
@@ -21,7 +21,6 @@ public class Rook extends Piece{
 			//Can't move to a space occupied by your own team
 			if(test.occupiedBy().team() == this.team())
 			{
-				System.out.println("Cannot move to a space occupied by one of your own pieces");
 				return false;
 			}
 			//Can only move forward and backwards or side to side
@@ -31,7 +30,7 @@ public class Rook extends Piece{
 			}
 			else
 			{
-				System.out.println("Invalid move for this piece");
+				return false;
 			}
 		}
 		else if(!isPathOccupied(test, b))
@@ -43,7 +42,7 @@ public class Rook extends Piece{
 			}
 			else
 			{
-				System.out.println("Invalid move for this piece");
+				return false;
 			}
 		}
 		return false;
@@ -61,7 +60,6 @@ public class Rook extends Piece{
 			{
 				if(b.board()[file-97][i-1].isOccupied() && b.board()[file-97][i-1].occupiedBy().team() == team)
 				{
-					System.out.println("There is another piece blocking the path");
 					return true;
 				}
 			}
@@ -72,7 +70,6 @@ public class Rook extends Piece{
 			{
 				if(b.board()[file-97][i-1].isOccupied() && b.board()[file-97][i-1].occupiedBy().team() == team)
 				{
-					System.out.println("There is another piece blocking the path");
 					return true;
 				}
 			}
@@ -83,7 +80,6 @@ public class Rook extends Piece{
 			{
 				if(b.board()[i-97][rank-1].isOccupied() && b.board()[i-97][rank-1].occupiedBy().team() != team)
 				{
-					System.out.println("There is another piece blocking the path");
 					return true;
 				}
 			}
@@ -94,14 +90,12 @@ public class Rook extends Piece{
 			{
 				if(b.board()[i-97][rank-1].isOccupied() && b.board()[i-97][rank-1].occupiedBy().team() != team)
 				{
-					System.out.println("There is another piece blocking the path");
 					return true;
 				}
 			}
 		}
 		else
 		{
-			System.out.println("Can't move to the space this piece is already in");
 			return false;
 		}
 		return false;

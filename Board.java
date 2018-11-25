@@ -1,7 +1,10 @@
-package chess;
+import java.util.ArrayList;
+
 
 public class Board {
 	private Cell board[][] = new Cell[8][8];
+	private ArrayList<Piece> whitePieces = new ArrayList<Piece>();
+	private ArrayList<Piece> blackPieces = new ArrayList<Piece>();
 	
 	public Board()
 	{
@@ -12,6 +15,16 @@ public class Board {
 				board[i-97][j-1] = new Cell((char) i, j);
 			}
 		}
+	}
+
+	public ArrayList<Piece> whitePieces()
+	{
+		return whitePieces;
+	}
+
+	public ArrayList<Piece> blackPieces()
+	{
+		return blackPieces;
 	}
 	
 	public void populate()
@@ -34,6 +47,20 @@ public class Board {
 		//King&Queen
 		board[3][0].occupy(new Queen('W', board[3][0]));
 		board[4][0].occupy(new King('W', board[4][0]));
+		//King first to make it the 0th element in the array list
+		whitePieces.add(board[4][0].occupiedBy());
+		for(int i = 0; i < 8; i++)
+		{
+			whitePieces.add(board[i][1].occupiedBy());
+		}
+		for(int i = 0; i < 4; i++)
+		{
+			whitePieces.add(board[i][0].occupiedBy());
+		}
+		for(int i = 5; i < 9; i++)
+		{
+			whitePieces.add(board[i][0].occupiedBy());
+		}
 		
 		//Black Pieces
 		for(int i = 0; i < 8; i++)
@@ -52,6 +79,20 @@ public class Board {
 		//King&Queen
 		board[3][7].occupy(new King('B', board[3][7]));
 		board[4][7].occupy(new Queen('B', board[4][7]));
+
+		blackPieces.add(board[4][0].occupiedBy());
+		for(int i = 0; i < 8; i++)
+		{
+			blackPieces.add(board[i][1].occupiedBy());
+		}
+		for(int i = 0; i < 4; i++)
+		{
+			blackPieces.add(board[i][0].occupiedBy());
+		}
+		for(int i = 5; i < 9; i++)
+		{
+			blackPieces.add(board[i][0].occupiedBy());
+		}
 	}
 	
 	public Cell[][] board()

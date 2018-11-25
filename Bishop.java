@@ -1,4 +1,4 @@
-package chess;
+
 
 public class Bishop extends Piece{
 	public Bishop(char t)
@@ -21,7 +21,6 @@ public class Bishop extends Piece{
 		{
 			if(test.occupiedBy().team() == team)
 			{
-				System.out.println("Cannot move to a space occupied by one of your own pieces");
 				return false;
 			}
 			else if(!isPathOccupied(test, b))
@@ -78,7 +77,6 @@ public class Bishop extends Piece{
 			{
 				if(i >= 97 && b.board()[i-97][testRank-1].isOccupied())
 				{
-					System.out.println("TEST TEST");
 					return true;
 				}
 				testRank++;

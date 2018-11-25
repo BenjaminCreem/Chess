@@ -1,4 +1,4 @@
-package chess;
+
 
 public class Queen extends Piece{
 	public Queen(char t)
@@ -37,7 +37,7 @@ public class Queen extends Piece{
 			}
 			else
 			{
-				System.out.println("Invalid move for this piece");
+				return false;
 			}
 		}
 		else if(!isPathOccupied(test, b))
@@ -54,7 +54,7 @@ public class Queen extends Piece{
 			}
 			else
 			{
-				System.out.println("Invalid move for this piece");
+				return false;
 			}
 		}
 		return false;
@@ -125,7 +125,6 @@ public class Queen extends Piece{
 			{
 				if(b.board()[file-97][i-1].isOccupied() && b.board()[file-97][i-1].occupiedBy().team() == team)
 				{
-					System.out.println("There is another piece blocking the path");
 					return true;
 				}
 			}
@@ -136,7 +135,6 @@ public class Queen extends Piece{
 			{
 				if(b.board()[file-97][i-1].isOccupied() && b.board()[file-97][i-1].occupiedBy().team() == team)
 				{
-					System.out.println("There is another piece blocking the path");
 					return true;
 				}
 			}
@@ -147,7 +145,6 @@ public class Queen extends Piece{
 			{
 				if(b.board()[i-97][rank-1].isOccupied() && b.board()[i-97][rank-1].occupiedBy().team() == team)
 				{
-					System.out.println("There is another piece blocking the path");
 					return true;
 				}
 			}
@@ -158,14 +155,12 @@ public class Queen extends Piece{
 			{
 				if(b.board()[i-97][rank-1].isOccupied() && b.board()[i-97][rank-1].occupiedBy().team() == team)
 				{
-					System.out.println("There is another piece blocking the path");
 					return true;
 				}
 			}
 		}
 		else
 		{
-			System.out.println("Can't move to the space this piece is already in");
 			return false;
 		}
 		return false;

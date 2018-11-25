@@ -1,4 +1,4 @@
-package chess;
+
 
 public class Pawn extends Piece{
 	public Pawn(char t)
@@ -22,7 +22,6 @@ public class Pawn extends Piece{
 		{
 			if(test.occupiedBy().team() == team)
 			{
-				System.out.println("That cell is occupied by your own team.");
 				return false;
 			}
 			else
@@ -92,7 +91,6 @@ public class Pawn extends Piece{
 			{
 				if(b.board()[file-97][i-1].isOccupied())
 				{
-					System.out.println("There is another piece blocking the path");
 					return true;
 				}
 			}
@@ -103,7 +101,6 @@ public class Pawn extends Piece{
 			{
 				if(b.board()[file-97][i-1].isOccupied())
 				{
-					System.out.println("There is another piece blocking the path");
 					return true;
 				}
 			}
