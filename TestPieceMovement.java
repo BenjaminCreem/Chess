@@ -105,7 +105,8 @@ public class TestPieceMovement {
         assertTrue(board.board()[4][1].occupiedBy().move(board, board.board()[5][2]));
         //Test King Backwards Left
         assertTrue(board.board()[5][2].occupiedBy().move(board, board.board()[4][1]));
-		
+        //Test King Backwards
+        assertTrue(board.board()[4][1].occupiedBy().move(board, board.board()[4][0]));
 		board.print();
 	}
 
