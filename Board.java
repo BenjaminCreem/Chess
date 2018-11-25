@@ -57,7 +57,7 @@ public class Board {
 		{
 			whitePieces.add(board[i][0].occupiedBy());
 		}
-		for(int i = 5; i < 9; i++)
+		for(int i = 5; i < 8; i++)
 		{
 			whitePieces.add(board[i][0].occupiedBy());
 		}
@@ -89,7 +89,7 @@ public class Board {
 		{
 			blackPieces.add(board[i][0].occupiedBy());
 		}
-		for(int i = 5; i < 9; i++)
+		for(int i = 5; i < 8; i++)
 		{
 			blackPieces.add(board[i][0].occupiedBy());
 		}
