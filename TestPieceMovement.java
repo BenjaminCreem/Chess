@@ -1,8 +1,5 @@
-package chess;
-
-import static org.junit.Assert.*;
-
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TestPieceMovement {
 
@@ -92,7 +89,22 @@ public class TestPieceMovement {
 		//Test Queen up right movement
 		assertTrue(board.board()[6][3].occupiedBy().move(board, board.board()[7][4]));
 		
-		
+		//Going to test King movement. Move pawns out of the way first
+        assertTrue(board.board()[3][1].occupiedBy().move(board, board.board()[3][3]));
+        assertTrue(board.board()[4][1].occupiedBy().move(board, board.board()[4][3]));
+        assertTrue(board.board()[5][1].occupiedBy().move(board, board.board()[5][3]));
+        //Move Bishop out of the way
+        assertTrue(board.board()[5][0].occupiedBy().move(board, board.board()[2][3]));
+        //Test King Forward Movement
+        assertTrue(board.board()[4][0].occupiedBy().move(board, board.board()[4][1]));
+        //Test King Forward Left
+        assertTrue(board.board()[4][1].occupiedBy().move(board, board.board()[3][2]));
+        //Test King Backwards Right
+        assertTrue(board.board()[3][2].occupiedBy().move(board, board.board()[4][1]));
+        //Test King Forward Right
+        assertTrue(board.board()[4][1].occupiedBy().move(board, board.board()[5][2]));
+        //Test King Backwards Left
+        assertTrue(board.board()[5][2].occupiedBy().move(board, board.board()[4][1]));
 		
 		board.print();
 	}
