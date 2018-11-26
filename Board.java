@@ -17,6 +17,13 @@ public class Board {
 		}
 	}
 
+	public Board(Cell b[][], ArrayList<Piece> wp, ArrayList<Piece> bp)
+	{
+		board = b;
+		whitePieces = wp;
+		blackPieces = bp;
+	}
+
 	public ArrayList<Piece> whitePieces()
 	{
 		return whitePieces;

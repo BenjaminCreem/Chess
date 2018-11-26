@@ -62,6 +62,8 @@ public abstract class Piece {
 		rank = c.rank();
 		hasMoved = true;
 	}
+
+
 	
 	public boolean hasMoved()
 	{
@@ -70,4 +72,5 @@ public abstract class Piece {
 	
 	abstract boolean validMove(Cell test, Board b);
 	abstract boolean isPathOccupied(Cell test, Board b);
+
 }

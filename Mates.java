@@ -25,6 +25,33 @@ public class Mates {
         //If we go into this statement and we are not in check mate return 3
         if(inCheck(checkTeam, oppTeam, b))
         {
+            for(int i = 0; i < checkTeam.size(); i++)
+            {
+                if(checkTeam.get(i).getClass().equals(Pawn.class))
+                {
+
+                }
+                else if(checkTeam.get(i).getClass().equals(King.class))
+                {
+
+                }
+                else if(checkTeam.get(i).getClass().equals(Rook.class))
+                {
+
+                }
+                else if(checkTeam.get(i).getClass().equals(Bishop.class))
+                {
+
+                }
+                else if(checkTeam.get(i).getClass().equals(Knight.class))
+                {
+
+                }
+                else if(checkTeam.get(i).getClass().equals(Queen.class))
+                {
+
+                }
+            }
             return 3;
         }
         //If we go into this statement and get to the end we have stalemate and return 1
