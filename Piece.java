@@ -39,7 +39,7 @@ public abstract class Piece {
 	
 	public boolean move(Board b, Cell c)
 	{
-		if(!validMove(c, b))
+		if(!validMove(c, b) || c.file() > 'h' || c.file() < 'a' || c.rank() < 0 || c.rank() > 7)
 		{
 			return false;
 		}
