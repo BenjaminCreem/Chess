@@ -18,7 +18,6 @@ public class Mates {
     }
 
 
-    //Return 2 if check mate, 1 if stale mate, 0 if neither
     public int endGameTest(ArrayList<Piece> checkTeam, ArrayList<Piece> oppTeam, Board b)
     {
         //If we go into this statement and we are in check mate return 4
@@ -106,11 +105,65 @@ public class Mates {
                 }
                 else if(checkTeam.get(i).getClass().equals(King.class))
                 {
-
+                    //Test square around king
+                    for(int j = -1; j < 2; j++)
+                    {
+                        for(int k = -1; k < 2; k++)
+                        {
+                            if(j != 0 && k != 0 && testPiece.move(testBoard, testBoard.board()[testPiece.file()+j][testPiece.rank()+k]))
+                            {
+                                if(!inCheck(checkTeam, oppTeam, testBoard))
+                                {
+                                    return 3;
+                                }
+                            }
+                        }
+                    }
                 }
                 else if(checkTeam.get(i).getClass().equals(Rook.class))
                 {
-
+                    //Test forward and backward
+                    for(int j = testPiece.rank()+1; j < 8; j++)
+                    {
+                        if(testPiece.move(testBoard, testBoard.board()[testPiece.file()][testPiece.rank()+j]))
+                        {
+                            if(!inCheck(checkTeam, oppTeam, testBoard))
+                            {
+                                return 3;
+                            }
+                        }
+                    }
+                    for(int j = testPiece.rank()-1; j > 0; j--)
+                    {
+                        if(testPiece.move(testBoard, testBoard.board()[testPiece.file()][testPiece.rank()+j]))
+                        {
+                            if(!inCheck(checkTeam, oppTeam, testBoard))
+                            {
+                                return 3;
+                            }
+                        }
+                    }
+                    //Test side to side
+                    for(int j = testPiece.file()-1; j >= 'a'; j--)
+                    {
+                        if(testPiece.move(testBoard, testBoard.board()[testPiece.file()+j][testPiece.rank()]))
+                        {
+                            if(!inCheck(checkTeam, oppTeam, testBoard))
+                            {
+                                return 3;
+                            }
+                        }
+                    }
+                    for(int j = testPiece.file()-1; j <= 'h'; j++)
+                    {
+                        if(testPiece.move(testBoard, testBoard.board()[testPiece.file()+j][testPiece.rank()]))
+                        {
+                            if(!inCheck(checkTeam, oppTeam, testBoard))
+                            {
+                                return 3;
+                            }
+                        }
+                    }
                 }
                 else if(checkTeam.get(i).getClass().equals(Bishop.class))
                 {
