@@ -42,6 +42,7 @@ public class Bishop extends Piece{
 	}
 
 	@Override
+	//Just realized this is probably completely broken and I need to fix it after looking at code coverage analysis report
 	public boolean isPathOccupied(Cell test, Board b) {
 		//Case piece is up and to the left
 		if(test.file() < file && test.rank() > rank)

@@ -79,7 +79,6 @@ public class TestPieceMovement {
 		//Test Queen down Left movement
 		assertTrue(board.board()[1][1].occupiedBy().move(board, board.board()[0][0]));
 		//Test Queen forward movement and capture
-		board.print();
 		assertTrue(board.board()[0][0].occupiedBy().move(board, board.board()[0][7]));
 		//Test Queen backward movement
 		assertTrue(board.board()[0][7].occupiedBy().move(board, board.board()[0][5]));
