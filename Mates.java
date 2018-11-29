@@ -162,6 +162,20 @@ public class Mates {
 
     private boolean kingMoveTest(Piece tp, Board tb, ArrayList<Piece> ct, ArrayList<Piece> ot)
     {
+        //Test square around king
+        for(int j = -1; j < 2; j++)
+        {
+            for(int k = -1; k < 2; k++)
+            {
+                if(j != 0 && k != 0 && tp.move(tb, tb.board()[tp.file()+j][tp.rank()+k]))
+                {
+                    if(!inCheck(ct, ot, tb))
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
         return false;
     }
 
@@ -172,6 +186,48 @@ public class Mates {
 
     private boolean rookMoveTest(Piece tp, Board tb, ArrayList<Piece> ct, ArrayList<Piece> ot)
     {
+        //Test forward and backward
+        for(int j = tp.rank()+1; j < 8; j++)
+        {
+            if(tp.move(tb, tb.board()[tp.file()][tp.rank()+j]))
+            {
+                if(!inCheck(ct, ot, tb))
+                {
+                    return true;
+                }
+            }
+        }
+        for(int j = tp.rank()-1; j > 0; j--)
+        {
+            if(tp.move(tb, tb.board()[tp.file()][tp.rank()+j]))
+            {
+                if(!inCheck(ct, ot, tb))
+                {
+                    return true;
+                }
+            }
+        }
+        //Test side to side
+        for(int j = tp.file()-1; j >= 'a'; j--)
+        {
+            if(tp.move(tb, tb.board()[tp.file()+j][tp.rank()]))
+            {
+                if(!inCheck(ct, ot, tb))
+                {
+                    return true;
+                }
+            }
+        }
+        for(int j = tp.file()-1; j <= 'h'; j++)
+        {
+            if(tp.move(tb, tb.board()[tp.file()+j][tp.rank()]))
+            {
+                if(!inCheck(ct, ot, tb))
+                {
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
