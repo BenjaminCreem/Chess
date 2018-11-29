@@ -39,8 +39,9 @@ public abstract class Piece {
 	
 	public boolean move(Board b, Cell c)
 	{
-		if(!validMove(c, b) || c.file() > 'h' || c.file() < 'a' || c.rank() < 0 || c.rank() > 7)
+		if(!validMove(c, b) || c.file() > 'h' || c.file() < 'a' || c.rank() < 1 || c.rank() > 8)
 		{
+			System.out.println(c.rank());
 			return false;
 		}
 		//Tell current cell we are no longer there
