@@ -181,6 +181,11 @@ public class Mates {
 
     private boolean queenMoveTest(Piece tp, Board tb, ArrayList<Piece> ct, ArrayList<Piece> ot)
     {
+        //Queen moves are just both the rook and the bishop so we can borrow their methods
+        if(rookMoveTest(tp, tb, ct, ot) || bishopMoveTest(tp, tb, ct, ot))
+        {
+            return true;
+        }
         return false;
     }
 
